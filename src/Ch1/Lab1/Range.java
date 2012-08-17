@@ -1,3 +1,5 @@
+package Ch1.Lab1;
+
 import java.util.Scanner;
 
 public class Range {
