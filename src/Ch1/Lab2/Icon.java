@@ -5,6 +5,10 @@ import javax.swing.*;
 
 public class Icon extends JApplet{
 
+	// added to supress warning:
+	// the serializable class icon does not declare a static final serialVersionUID field of type long
+	private static final long serialVersionUID = -6742476590203328679L;
+
 	public void paint(Graphics g){
 		
 		g.drawOval(100, 100, 40, 40);
