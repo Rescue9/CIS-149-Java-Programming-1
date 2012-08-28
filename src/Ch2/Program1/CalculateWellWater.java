@@ -28,14 +28,32 @@ casing holds about 441 gallons of water—plenty for a family of 4 and no
 need to install a separate holding tank.
 
  */
+ 
+import java.util.*
 
 public class CalculateWellWater {
+ 
+ public static final double PI = 3.14159
+ public static final/double CU_FT_H2O = 7.48
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		// let's declare our variables first
+		double radius;
+		double height;
+		Scanner keyboard;
+		
+		// get our variables from the user
+		System.out.println("Please enter the radius of the well for which you are calculating water volume: ");
+		keyboard = new Scanner(System.in);
+		radius = keyboard.nextDouble();
+		
+		System.out.println("Please enter the height of the well: ");
+		height = keyboard.nextDouble();
+		
+		// perform our calculations and.respond to the user
+		
+		
 
 	}
 
