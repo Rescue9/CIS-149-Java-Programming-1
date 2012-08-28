@@ -1,3 +1,4 @@
+package Ch2.Lab1;
 /*
 Program: Digits.java
 Programmer: Andrew Buskov
@@ -6,9 +7,9 @@ Purpose: To display four digits typed on a single line onto four lines.
 
 import java.util.Scanner;
 
-public void Digits.java {
+public class Digits {
 
-     public static void main(String[] args0{
+     public static void main(String[] args0){
 		 
 		 Scanner keyboard = new Scanner(System.in);
 		 String fourDigits;
