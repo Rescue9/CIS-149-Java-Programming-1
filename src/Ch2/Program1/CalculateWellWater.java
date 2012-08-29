@@ -10,8 +10,8 @@ package Ch2.Program1;
  * Added method to round numbers to a more usable format.
  */
  
-import java.text.DecimalFormat;
-import java.util.*;
+//import java.text.DecimalFormat; //original program, edited for correctness
+ import java.util.*;
 
 public class CalculateWellWater {
  
