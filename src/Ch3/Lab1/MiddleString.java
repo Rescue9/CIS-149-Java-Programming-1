@@ -1,4 +1,4 @@
-package Ch3;
+package Ch3.Lab1;
 
 /*
  * Program: MiddleString.java
