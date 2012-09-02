@@ -1,0 +1,9 @@
+In response to the comment left on my assignment after grading; "... if you had used my formula you would not have had to create a variable for PI.  The Math.PI assigns the value of PI":
+
+Sometimes it's just a matter of scrolling down.
+
+I was completing this program on my tablet while waiting on some lab work at the doctor. Had I actually scrolled down past the image and seen the formula I would have saved myself an hour of frustration. In my original formula I only divided by 12 once. I figured that 12 in = 1 ft. While this is indeed the case, 144 cu in = 1 cu ft, something I didn't think of for about 45 minutes.
+
+Thank you for pointing out the formula at the bottom of the page. I have edited my program to include that formula and have shrunken the code by nearly half. Hopefully someone else in class sees this and doesn't have to go through the troubleshooting that I did.
+
+I've posted this to my Github for future reference as I've not used Math.PI or any other Math.* class objects. 
