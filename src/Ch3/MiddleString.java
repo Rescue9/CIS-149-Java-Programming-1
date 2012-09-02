@@ -28,9 +28,26 @@ public class MiddleString {
 		// compare the words
 		if(word1.compareTo(word2)<=0 && word1.compareTo(word3)<=0)
 		{
-			// PICKUP HERE.... Church tonight.
+			// word1 is the smallest
+			if(word2.compareTo(word3)<=0)
+				middle = word2;
+			else
+				middle = word3;
 		}
-		
+		else if (word2.compareTo(word3)<=0){
+			//word2 is the smallest
+			if(word1.compareTo(word3)<=0)
+				middle = word1;
+			else
+				middle = word3;
+		}
+		else {
+			//word3 is the smallest
+			if(word1.compareTo(word2)<=0)
+				middle = word1;
+			else
+				middle = word2;
+		}
+		System.out.println("The middle word is " + middle);
 	}
-
 }
