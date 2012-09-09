@@ -1,7 +1,7 @@
 package Ch3.Lab2;
 
 /*
- * Program: MiddleString.java
+ * Program: CheckDate.java
  * Programmer: Andrew Buskov
  * Class: CIS 149
  * Date: September 8, 2012
