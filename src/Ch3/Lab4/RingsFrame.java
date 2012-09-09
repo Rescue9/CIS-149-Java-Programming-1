@@ -17,7 +17,7 @@ public class RingsFrame extends JApplet{
 	public static final int RING_X_OFFSET = 25;
 	public static final int RING_Y_OFFSET = 25;
 	
-	public static void main(Graphics canvas){
+	public void paint(Graphics canvas){
 		
 		canvas.setColor(Color.BLUE);
 		canvas.drawOval(0, 0, RING_DIAMETER, RING_DIAMETER);
