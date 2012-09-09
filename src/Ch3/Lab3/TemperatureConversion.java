@@ -32,7 +32,7 @@ public class TemperatureConversion {
 	 switch(units)
 	 {
 		 case 'F': case 'f':
-			convertedDegrees = 5 * (degrees -32/9);
+			convertedDegrees = 5 * (degrees -32)/9;
 			System.out.println(degrees + " degrees F = " + convertedDegrees + " degrees Celsius.");
 			break;
 			
