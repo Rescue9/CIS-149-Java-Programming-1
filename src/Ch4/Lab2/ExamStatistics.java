@@ -103,7 +103,7 @@ public class ExamStatistics {
 		else // print message if no scores were entered
 		{
 			System.out.println("No scores were entered.");
-			System.out.println("Buy-by-bye."); //snicker
+			System.out.println("Bye bye.");
 		}
 			
 	}
