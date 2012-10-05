@@ -4,3 +4,6 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+
+#binary files
+/bin
