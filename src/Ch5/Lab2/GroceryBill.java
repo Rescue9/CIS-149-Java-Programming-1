@@ -13,46 +13,51 @@ import java.text.DecimalFormat;
 public class GroceryBill {
 	
 	public static void main(String[] args){
+		
 		DecimalFormat currencyFormat = new DecimalFormat("$##,##0.00");
+		DecimalFormat subtotalFormat = new DecimalFormat("$##,##0.000");
 		double totalCost = 0;
 		Purchase item = new Purchase();
 	
 		item.readInput();
 		item.writeOutput();
+		System.out.println("Subtotal: " + subtotalFormat.format(item.getTotalCost())); // prettied this up
+		totalCost = totalCost + item.getTotalCost(); // Line was missing from Ch5Lab2 docs, but needed for proper functionality.
+
 		
 		item.setName("Oranges");
 		item.setPrice(10, 2.99);
 		item.setNumberBought(24);
 		item.writeOutput();
-		System.out.println("Subtotal: $" + item.getTotalCost());
+		System.out.println("Subtotal: " + subtotalFormat.format(item.getTotalCost())); // prettied this up
 		totalCost = totalCost + item.getTotalCost();
 		
 		item.setName("Eggs");
 		item.setPrice(12, 1.69);
 		item.setNumberBought(36);
 		item.writeOutput();
-		System.out.println("Subtotal: $" + item.getTotalCost());
+		System.out.println("Subtotal: " + subtotalFormat.format(item.getTotalCost())); // prettied this up
 		totalCost = totalCost + item.getTotalCost();
 		
 		item.setName("Apples");
 		item.setPrice(3, 1.00);
 		item.setNumberBought(20);
 		item.writeOutput();
-		System.out.println("Subtotal: $" + item.getTotalCost());
+		System.out.println("Subtotal: " + subtotalFormat.format(item.getTotalCost())); // prettied this up
 		totalCost = totalCost + item.getTotalCost();
 		
 		item.setName("Watermellons");
 		item.setPrice(1, 4.39);
 		item.setNumberBought(2);
 		item.writeOutput();
-		System.out.println("Subtotal $:" + item.getTotalCost());
+		System.out.println("Subtotal: " + subtotalFormat.format(item.getTotalCost())); // prettied this up
 		totalCost = totalCost + item.getTotalCost();
 		
 		item.setName("Bagles");
 		item.setPrice(6, 3.50);
 		item.setNumberBought(12);
 		item.writeOutput();
-		System.out.println("Subtotal: $" + item.getTotalCost());
+		System.out.println("Subtotal: " + subtotalFormat.format(item.getTotalCost())); // prettied this up
 		totalCost = totalCost + item.getTotalCost();
 		
 		System.out.println();
