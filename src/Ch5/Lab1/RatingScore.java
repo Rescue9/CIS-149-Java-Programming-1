@@ -6,7 +6,7 @@
  * Purpose: Rate a movie & restaurant
 */
 
-package Ch5;
+package Ch5.Lab1;
 
 import java.util.Scanner;
 
@@ -34,6 +34,8 @@ public class RatingScore {
 		boolean needTheRating = true;
 		
 		while (needTheRating){
+			
+			data = keyboard.nextInt();
 			
 			if(data>=0 && data <=maximumRating){
 				
@@ -65,7 +67,7 @@ public class RatingScore {
 	public static void main(String[] args){
 		
 		RatingScore movieRating = new RatingScore();
-		RatingScore restaurantRating = new RatingScore)();
+		RatingScore restaurantRating = new RatingScore();
 		
 		movieRating.initialize("Joe's excellent movie", 5);
 		restaurantRating.initialize("Food quality", 10);
@@ -73,7 +75,13 @@ public class RatingScore {
 		movieRating.inputRating();
 		
 		System.out.println("Displaying the attributes for the movie rating.");
-		System.out.println("The")
+		System.out.println("The rating is " + movieRating.getRating() + " out of " + movieRating.getMaxRating());
+		System.out.println();
+		
+		restaurantRating.inputRating();
+		
+		System.out.println("Displaying the rating for the restaurant.");
+		System.out.println(restaurantRating.getRatingString());
 		
 	}
 }
