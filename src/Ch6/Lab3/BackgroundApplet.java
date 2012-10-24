@@ -3,7 +3,7 @@
  * Programmer: Andrew Buskov
  * Class: CIS 149
  * Date: Oct 23, 2012
- * Purpose: Undetermined as of yet. //TODO
+ * Purpose: Change the color of the background by pressing buttons.
 */
 
 package Ch6.Lab3;
