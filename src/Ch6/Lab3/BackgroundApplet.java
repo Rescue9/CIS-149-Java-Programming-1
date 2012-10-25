@@ -14,6 +14,8 @@ import javax.swing.*;
 
 public class BackgroundApplet extends JApplet implements ActionListener {
 	
+	private static final long serialVersionUID = 1L; // eclipse complains
+	
 	private Container contentPane;
 	private JButton redButton, whiteButton, blueButton;
 	private JLabel instructions;
