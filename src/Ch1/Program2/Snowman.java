@@ -11,7 +11,6 @@ public class Snowman extends JApplet{
 		
 		// using setsize so that I'm not having to constantly resize
 		// my Applet Viewer window!
-		// TODO comment this out prior to submission!
 		//setSize(600,1000);
 		
 		// graphics code
