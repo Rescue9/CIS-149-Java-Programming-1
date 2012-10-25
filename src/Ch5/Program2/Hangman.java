@@ -67,9 +67,13 @@ public class Hangman {
 		Scanner keyboard = new Scanner(System.in);
 		
 		String myGuess = keyboard.next();
-		// TODO check to make sure that myGuess is only 1 character long.
+		while (myGuess.length() > 1){
+			System.out.println("You entered more than one character. Try again.");
+			String myGuess = keyboard.next();
+		}
 		
 		if (secretWord.contains(myGuess)){
+			
 			//TODO start revealing the disguisedWord
 		}
 	}
