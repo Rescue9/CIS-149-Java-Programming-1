@@ -120,6 +120,10 @@ public class SpeciesWithDensity {
 		return growthRate;
 	}
 	
+	public double getArea(){
+		return area;
+	}
+	
 	public boolean equals(SpeciesWithDensity otherObject){
 		return (name.equalsIgnoreCase(otherObject.name)) &&
 				(population == otherObject.population) &&
