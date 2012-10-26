@@ -14,10 +14,15 @@ public class Hangman {
 	
 	String secretWord;
 	String disguisedWord;
-	String remainingLetters;
+	String myGuess;
+	char guessChar;
 	int guessesMade;
 	int incorrectGuesses;
 	
+	/**
+	 * Precondition: 	User runs LetsPlay. 
+	 * @param word 		is the secretWord
+	 */
 	public void initialize(String word){
 		
 		// set our counts to zero
@@ -26,19 +31,25 @@ public class Hangman {
 		
 		// set word to lowercase to make it easier to deal with
 		secretWord = word.toLowerCase();
-		System.out.println(secretWord); // TODO comment out - used for testing
+		// System.out.println(secretWord); // remove - used for testing
 		
 		// start the game
 		System.out.println("Let\'s play a game of hangman.");
 		System.out.println("We are playing hangman");
 		System.out.println();
 		System.out.println("The disguised word is <" + createDisguisedWord(word) + ">");
+		
 	}
 	
+	/**
+	 * Precondition: 	The secretWord has been established
+	 * @param word
+	 * @return
+	 */
 	public String createDisguisedWord(String word){
 		
 		
-		// make sord lowercase
+		// make word lowercase
 		word = word.toLowerCase();
 		
 		// change disguisedWord characters to ?
@@ -61,38 +72,83 @@ public class Hangman {
 		return disguisedWord;
 	}
 	
-	public void makeGuess(char c){
+	/**
+	 * Precondition:	disguisedWord is established
+	 * @return			will return the guessed character
+	 */
+	public char makeGuess(){
 		
 		System.out.println("Guess a letter");
 		Scanner keyboard = new Scanner(System.in);
 		
-		String myGuess = keyboard.next();
+		myGuess = keyboard.next();
 		while (myGuess.length() > 1){
 			System.out.println("You entered more than one character. Try again.");
-			String myGuess = keyboard.next();
+			myGuess = keyboard.next();
 		}
 		
-		if (secretWord.contains(myGuess)){
+		// swap string for char & set lowercase
+		guessChar = myGuess.toLowerCase().charAt(0);
+		// System.out.println(guessChar); // remove - used for testing
+		return guessChar;
+	}
+	
+	/**
+	 * Precondition:	guessed character has been established
+	 * @param guess		the guessed character
+	 */
+	public void checkGuess(char guess){
+		
+		String checkingWord = "";
+		// check to see if letter guessed already
+		if (disguisedWord.indexOf(guess) != -1){
+			System.out.println("The letter has already been guessed");
+			return;
+		}
+		guessesMade++;	
+		for (int i =0; i < secretWord.length(); i++){
 			
-			//TODO start revealing the disguisedWord
+			if (secretWord.charAt(i) == guess){
+				checkingWord = checkingWord + secretWord.charAt(i);
+				// System.out.println(checkingWord); // remove - used for testing
+				
+			} else {
+				checkingWord = checkingWord + disguisedWord.charAt(i);
+				// System.out.println(checkingWord); // remove - used for testing
+			}
+		}
+		if (disguisedWord.equals(checkingWord)){
+			incorrectGuesses++;
+		}
+		
+		System.out.println("Guess made " + getGuessCount() + " with " + incorrectGuesses + " wrong.");
+		
+		disguisedWord = checkingWord;
+		System.out.println("The disguised word is<" + disguisedWord + ">");
+		
+	}
+	
+	/**
+	 * Precondition:	secretWord & disguisedWord hve both been established.
+	 */
+	public void checkWin(){
+		if (disguisedWord.equalsIgnoreCase(secretWord)){
+			System.out.println("Congratulations, you found the secret word: " + getSecretWord());
 		}
 	}
 	
-	public String getDisguisedWord(){
-		return null;
-	}
+	
 	
 	public String getSecretWord(){
 		return secretWord;
 	}
-	
-	public void isFound(){
-		System.out.println("Congratulations, you found the secret word " + secretWord);
-		System.out.println();
-		
-	}
+
 	public int getGuessCount(){
 		return guessesMade;
+	}
+	
+	public String getDisguisedWord(){
+		return disguisedWord;
 	}
 	
 
