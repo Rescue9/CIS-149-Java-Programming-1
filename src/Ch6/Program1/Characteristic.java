@@ -25,7 +25,7 @@ public class Characteristic {
 			System.out.println("Your input is not valid.");
 			makeValidInput();
 		} 
-		return rating;
+		return input;
 		
 	}
 	

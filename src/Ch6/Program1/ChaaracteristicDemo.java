@@ -21,7 +21,7 @@ public class ChaaracteristicDemo {
 			
 			System.out.println("What is your rating for " + myTraits.getDescription(i));
 			int myInput = myTraits.setInput();
-			myTraits.isValid(myInput);
+			myInput = myTraits.isValid(myInput);
 			myTraits.setRating(i, myInput);
 			System.out.println();
 			int returnInfo = myTraits.getRating(i);
