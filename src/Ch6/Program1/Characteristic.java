@@ -18,14 +18,13 @@ public class Characteristic {
 	private String likesBeaches = "likes beaches";
 	private int beachesRating = 0;
 	
-	public int isValid(int rating){
+	public boolean isValid(int rating){
 		
-		if (rating < 1 | rating > 10){
+		if (rating >= 1 && rating <= 10){
 			
-			System.out.println("Your input is not valid.");
-			makeValidInput();
-		} 
-		return input;
+			return true;
+		} else {
+		return false;}
 		
 	}
 	
@@ -73,11 +72,11 @@ public class Characteristic {
 		return input;
 	}
 	
-	private void makeValidInput(){
+	/*private void makeValidInput(){
 		
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Please enter an integer from 1 to 10");
 		input = keyboard.nextInt();
 		isValid(input);
-	}
+	}*/
 }

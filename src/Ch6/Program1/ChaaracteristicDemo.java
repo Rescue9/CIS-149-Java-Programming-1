@@ -21,10 +21,11 @@ public class ChaaracteristicDemo {
 			
 			System.out.println("What is your rating for " + myTraits.getDescription(i));
 			int myInput = myTraits.setInput();
-			myInput = myTraits.isValid(myInput);
+			while (!myTraits.isValid(myInput)){
+				myInput = myTraits.setInput();
+			}
 			myTraits.setRating(i, myInput);
 			System.out.println();
-			int returnInfo = myTraits.getRating(i);
 			System.out.println("Displaying the rating we got: " + myTraits.getDescription(i) + " is rated as " + myTraits.getRating(i));
 		}
 	}
