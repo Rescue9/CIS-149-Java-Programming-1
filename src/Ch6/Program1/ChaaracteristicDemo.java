@@ -7,26 +7,30 @@
 */
 package Ch6.Program1;
 
-
-import java.util.Scanner;
-
 public class ChaaracteristicDemo {
 	
-	static Characteristic myTraits = new Characteristic();
-	Scanner keyboard = new Scanner(System.in);
-	
 	public static void main(String[] args){
+		// SPORTS
+		System.out.println("What is your rating for likes sports?");
+		Characteristic sports = new Characteristic();
+		int sportInput = sports.setRating();
 		
-		for (int i = 1; i <= 2; i++){
-			
-			System.out.println("What is your rating for " + myTraits.getDescription(i));
-			int myInput = myTraits.setInput();
-			while (!myTraits.isValid(myInput)){
-				myInput = myTraits.setInput();
-			}
-			myTraits.setRating(i, myInput);
-			System.out.println();
-			System.out.println("Displaying the rating we got: " + myTraits.getDescription(i) + " is rated as " + myTraits.getRating(i));
+		while (!sports.isValid(sportInput)){
+			sportInput = sports.setRating();
 		}
+		System.out.println("Displaying the rating we got: likes sports is rated as " + sports.getRating());
+		
+		
+		// BEACHES
+		System.out.println("What is your rating for likes beaches?");
+		Characteristic beaches = new Characteristic();
+		int beachInput = beaches.setRating();
+		
+		while (!beaches.isValid(beachInput)){
+			beachInput = beaches.setRating();
+		}
+		System.out.println("Displaying the rating we got: likes beaches is rated as " + beaches.getRating());
+
+		
 	}
 }
