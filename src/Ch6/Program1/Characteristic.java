@@ -12,71 +12,57 @@ import java.util.Scanner;
 
 public class Characteristic {
 	
-	private int input = -1;
-	private String likesSports = "likes sports";
-	private int sportsRating = 0;
-	private String likesBeaches = "likes beaches";
-	private int beachesRating = 0;
+	private String description;
+	private int rating;
+	private int input;
+	
+	public Characteristic(){
+		setDescription("No Description");
+		setaRating(0);
+	}
+	
+	public Characteristic(String interest){
+		setDescription(interest);
+		rating = 0;
+	}
+	
+	public Characteristic(String interest, int input){
+		setDescription(interest);
+		setaRating(input);
+	}
+	
+	private void setDescription(String interest) {
+		description = interest;
+	}
+
+	public int setRating(){
+		
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Please enter an integer from 1 to 10");
+		input = keyboard.nextInt();
+		// System.out.println(input); // used for testing
+		return input;
+	}
+	
+	public int setaRating(int input){
+		rating = input;
+		return rating;
+	}
 	
 	public boolean isValid(int rating){
 		
 		if (rating >= 1 && rating <= 10){
-			
+			setaRating(rating);
 			return true;
 		} else {
 		return false;}
-		
 	}
 	
-	public String getDescription(int question){
-		
-		switch (question){
-		
-		case 1: return likesSports;
-		case 2: return likesBeaches;	
-		default: return null;
-		}
+	public String getDescription() {
+		return description;
 	}
 	
-	public int getRating(int question){
-		
-		switch (question){
-		
-		case 1: return sportsRating;
-		case 2: return beachesRating;
-		default: return 0;
-		}
+	public int getRating(){
+		return rating;
 	}
-	
-	private void getCompatability(){
-		
-		
-	}		
-	
-	public void setRating(int question, int rating){
-		
-		switch (question){
-		
-		case 1: sportsRating = rating;
-				break;
-		case 2: beachesRating = rating;
-				break;			
-		}
-	}
-	
-	public int setInput(){
-		
-		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Please enter an integer from 1 to 10");
-		input = keyboard.nextInt();
-		return input;
-	}
-	
-	/*private void makeValidInput(){
-		
-		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Please enter an integer from 1 to 10");
-		input = keyboard.nextInt();
-		isValid(input);
-	}*/
 }
