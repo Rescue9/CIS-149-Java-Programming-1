@@ -40,10 +40,9 @@ public class CharacteristicDemo {
 		// get compatability
 		
 		System.out.println("The compatability measure should be 1");
-		System.out.println(sports1.getCompatability(beaches1));
+		System.out.println(sports1.getCompatability(sports2));
 		System.out.println("The compatability measure should be 0");
-		System.out.println(sports2.getCompatability(beaches2));
-		System.out.println("The compatability should be 0.209");
+		System.out.println(sports1.getCompatability(beaches2));
 		
 		
 	}
