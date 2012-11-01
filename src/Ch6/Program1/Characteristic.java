@@ -56,11 +56,7 @@ public class Characteristic {
 	public double getCompatability(Characteristic otherRating){
 		if (!isMatch(otherRating)){
 			// System.out.println("I made it this far at least!"); // used for testing.
-			return 0.0; // ATTN: I tried NUMBEROUS times to get this return to work.
-						// For some reason I just can't get it to return 0.0. The println
-						// was inserted for testing to see if I could make it that far
-						// in the program. I didn't intend to use it as part of the 
-						// return statement. Any help would be appreciated.
+			return 0.0; 
 		} else {
 			// System.out.println(getCompatabilityMeasure(otherRating));  // used for testing
 		return getCompatabilityMeasure(otherRating);
