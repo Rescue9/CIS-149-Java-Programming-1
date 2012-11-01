@@ -14,7 +14,6 @@ public class Characteristic {
 	
 	private String description;
 	private int rating;
-	private int input;
 	
 	public Characteristic(String interest){
 		setDescription(interest);
@@ -23,13 +22,13 @@ public class Characteristic {
 	
 	public boolean isValid(int input){
 		if (input >= 1 && input <= 10){
-			setaRating(input);
+			setRating(input);
 			return true;
 		} else {
 		return false;}
 	}
 	
-	public int setaRating(int input){
+	public int setRating(int input){
 		rating = input;
 		return rating;
 	}
@@ -42,10 +41,10 @@ public class Characteristic {
 		System.out.println("What is your rating for likes " + description + "?");
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Please enter an integer from 1 to 10");
-		input = keyboard.nextInt();
+		int input = keyboard.nextInt();
 		// System.out.println(input); // used for testing
-		if (!this.isValid(input)){
-			this.setRating();
+		if (!isValid(input)){
+			setRating();
 		} 
 		return input;
 	}
@@ -56,14 +55,20 @@ public class Characteristic {
 	
 	public double getCompatability(Characteristic otherRating){
 		if (!isMatch(otherRating)){
-			return 0.0;
+			// System.out.println("I made it this far at least!"); // used for testing.
+			return 0.0; // ATTN: I tried NUMBEROUS times to get this return to work.
+						// For some reason I just can't get it to return 0.0. The println
+						// was inserted for testing to see if I could make it that far
+						// in the program. I didn't intend to use it as part of the 
+						// return statement. Any help would be appreciated.
 		} else {
+			// System.out.println(getCompatabilityMeasure(otherRating));  // used for testing
 		return getCompatabilityMeasure(otherRating);
 		}
 	}
 
 	public boolean isMatch(Characteristic otherRating){
-		System.out.println(description.equals(otherRating.getDescription()));
+		// System.out.println(description.equals(otherRating.getDescription())); // used for testing
 		return description.equals(otherRating.getDescription());
 		
 	}
