@@ -45,14 +45,27 @@ public class TicTacToe {
 		}
 	}
 
-	private boolean checkWin(){
+	private boolean checkWin(int case){ // CHECK VALIDITY OF THIS SWITCH STATEMENT
 		boolean win = true;
-		for (int i=0;i<3;i++){
-			win = win && checkHoriz(i); /////////////////// TODO find out a way to check to make sure at least 1 is true, but not necessarily all.
-			win = win && checkVert(i);
+		
+		switch (nextCase) {
+			case 1: win = win && checkHoriz();
+					return win;
+					break;
+					
+			case 2: win = win && checkVert();
+					return win;
+					break;
+					
+			case 3: win = win && checkDiagL2R();
+					return win;
+					break;
+					
+			case 4: win = win && checkDiagR2L();
+					return win;
+					break;
 		}
-		//win = win + checkDiag();
-		return win;	
+		return null;
 	}
 	
 	private boolean checkHoriz(int row){
@@ -78,6 +91,17 @@ public class TicTacToe {
 			}
 		return win;
 		}
+		
+	private boolean checkDiagL2R(){
+		boolean win = true;
+		if (board[0][0] != board[1][1]{
+			win = false;
+		}
+		if (board[0][0] != board[2][2]{
+			win = false;
+		}
+		return win;
+	}
 
 	
 	public static void main(String[] args){
@@ -102,7 +126,12 @@ public class TicTacToe {
 			System.out.println(player);
 			System.out.println("the puzzle now is: \n" + myGame.drawBoard());
 			
-			boolean didIWin = myGame.checkWin();
+			for (int i = 0; i < 2; i++){
+				while(!boolean myGame.checkWin){
+					myGame.checkWin(i);
+					didIWin = myGame.checkWin();
+					System.out.println(didIWin);
+			};
 			System.out.println(didIWin);
 			
 			//win = true; // TODO Stub
