@@ -11,18 +11,22 @@ package Ch7.Program1;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javax.swing.JApplet;
+import javax.swing.JFrame;
 
-public class PineTreeApplet extends JApplet {
+public class PineTreeGUI extends JFrame {
 
 	private static final long serialVersionUID = 1L; // eclipse complains
 	
-
-	public static final int XBASE = 300;
-	public static final int YBASE = 600;
+	private static final int XBASE = 300;
+	private static final int YBASE = 600;
+	
+	public static void main(String[] args){
+		PineTreeGUI myTree = new PineTreeGUI();
+		myTree.setSize(700, 700);
+		myTree.setVisible(true);
+	}
 	
 	public void paint(Graphics canvas){
-		setSize(700,700);
 		constructSquare(canvas);
 		constructTriangle(canvas);
 	}

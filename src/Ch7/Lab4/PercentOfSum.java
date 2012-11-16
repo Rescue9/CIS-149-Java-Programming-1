@@ -16,6 +16,7 @@ public class PercentOfSum {
 		
 		Scanner keyboard = new Scanner(System.in);
 		
+		@SuppressWarnings("unused")
 		int thisMany, index, sum, percent; // percent is not used, but is in the lab docs so I will leave it.
 		int[] theList;
 		
