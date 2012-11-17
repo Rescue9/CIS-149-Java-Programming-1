@@ -53,7 +53,7 @@ public class TicTacToe {
 		boolean win = true;
 		int row = 0;
 		for (row=0; row<=2; row++){
-			System.out.println(row + " row check");
+			//System.out.println(row + " row check"); // used for testing
 			if (board[row][0] != board[row][1]){
 				win = false;
 			}else if (board[row][0] != board[row][2]){
@@ -67,7 +67,7 @@ public class TicTacToe {
 		boolean win = true;
 		int col=0;
 		for (col=0; col<=2; col++){
-			System.out.println(col + " col check");
+			// System.out.println(col + " col check"); // used for testing
 			if (board[0][col] != board[1][col]){
 				win = false;
 			}else if (board[1][col] != board[2][col]){
@@ -97,11 +97,20 @@ public class TicTacToe {
 		return win;
 	}
 	
-	private static void weHaveAWinner(){
-		System.out.println("YOU WIN!"); //TODO determine who actually won
+	private static void weHaveAWinner(char who){
+		System.out.println(who + " WINS!"); //TODO determine who actually won
 		System.exit(0);
 	}
 
+	private static boolean isBoardFull(){
+		boolean boardFull = true;
+		for (int row = 0; row <=2; row++){
+			for (int col=0; col<=2; col++){
+				boardFull = boardFull && board[row][col]>0;
+			}
+		}
+		return boardFull;
+	}
 	
 	public static void main(String[] args){
 		
@@ -114,12 +123,20 @@ public class TicTacToe {
 		while (!win){
 			if (xsTurn){
 				takeMyTurn('X');
-				//xsTurn = false;
+				if(isBoardFull()){
+					System.out.println("Nobody wins.... How about another game?");
+					System.exit(0);
+				}
+				xsTurn = false;
 			}
-			/*if (!xsTurn){
+			if (!xsTurn){
 				takeMyTurn('O');
+				if(isBoardFull()){
+					System.out.println("Nobody wins.... How about another game?");
+					System.exit(0);
+				}
 				xsTurn = true;
-			}*/
+			}
 		}
 	}
 		
@@ -145,31 +162,27 @@ public class TicTacToe {
 		else {
 			System.out.println("The spot " + row + " " + col + " is not empty.");
 			System.out.println("Try a different space....");
-			System.out.println(myGame.drawBoard());
+			//System.out.println(myGame.drawBoard());
 			takeMyTurn(player);
 		}
 		
 		System.out.println("the puzzle now is: \n" + myGame.drawBoard());
 		
 		boolean didIWin = myGame.checkVert();
-		System.out.println(" Well.... did " + who + " win: " + didIWin); // TODO Stub
 		if (didIWin){
-			weHaveAWinner();
+			weHaveAWinner(player);
 		}
 		didIWin = myGame.checkHoriz();
-		System.out.println(" Well.... did " + who + " win: " + didIWin); // TODO Stub
 		if (didIWin){
-			weHaveAWinner();
+			weHaveAWinner(player);
 		}
 		didIWin = myGame.checkDiagL2R();
-		System.out.println(" Well.... did " + who + " win: " + didIWin); // TODO Stub
 		if (didIWin){
-			weHaveAWinner();
+			weHaveAWinner(player);
 		}
 		didIWin = myGame.checkDiagR2L();
-		System.out.println(" Well.... did " + who + " win: " + didIWin); // TODO Stub
 		if (didIWin){
-			weHaveAWinner();
+			weHaveAWinner(player);
 		}
 	}
 }
