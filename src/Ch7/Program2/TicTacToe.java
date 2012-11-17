@@ -53,12 +53,13 @@ public class TicTacToe {
 		boolean win = true;
 		int row = 0;
 		for (row=0; row<=2; row++){
-			//System.out.println(row + " row check"); // used for testing
 			if (board[row][0] != board[row][1]){
 				win = false;
-			}else if (board[row][0] != board[row][2]){
+			}
+			if (board[row][0] != board[row][2]){
 				win = false;
 			}
+			return win;
 		}
 		return win;
 	}
@@ -67,12 +68,13 @@ public class TicTacToe {
 		boolean win = true;
 		int col=0;
 		for (col=0; col<=2; col++){
-			// System.out.println(col + " col check"); // used for testing
 			if (board[0][col] != board[1][col]){
 				win = false;
-			}else if (board[1][col] != board[2][col]){
+			}
+			if (board[1][col] != board[2][col]){
 				win = false;
 			}
+			return win;
 		}
 		return win;
 		}
@@ -111,6 +113,9 @@ public class TicTacToe {
 		}
 		return boardFull;
 	}
+	public boolean checkWin(){
+		return true;
+	}
 	
 	public static void main(String[] args){
 		
@@ -125,7 +130,7 @@ public class TicTacToe {
 				takeMyTurn('X');
 				if(isBoardFull()){
 					System.out.println("Nobody wins.... How about another game?");
-					System.exit(0);
+					anotherGame();
 				}
 				xsTurn = false;
 			}
@@ -133,10 +138,22 @@ public class TicTacToe {
 				takeMyTurn('O');
 				if(isBoardFull()){
 					System.out.println("Nobody wins.... How about another game?");
-					System.exit(0);
+					anotherGame();
 				}
 				xsTurn = true;
 			}
+		}
+	}
+	
+	private static void anotherGame(){
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Would you like to play again?");
+		String answer = keyboard.next();
+		if (answer.equalsIgnoreCase("Y")){
+			myGame.drawBoard();
+		} else {
+			System.out.println("How about a nice game of chess? {snicker}");
+			System.exit(0);
 		}
 	}
 		
@@ -167,21 +184,16 @@ public class TicTacToe {
 		}
 		
 		System.out.println("the puzzle now is: \n" + myGame.drawBoard());
-		
-		boolean didIWin = myGame.checkVert();
-		if (didIWin){
+		if (myGame.checkVert()){
 			weHaveAWinner(player);
 		}
-		didIWin = myGame.checkHoriz();
-		if (didIWin){
+		if (myGame.checkHoriz()){
 			weHaveAWinner(player);
 		}
-		didIWin = myGame.checkDiagL2R();
-		if (didIWin){
+		if (myGame.checkDiagL2R()){
 			weHaveAWinner(player);
 		}
-		didIWin = myGame.checkDiagR2L();
-		if (didIWin){
+		if (myGame.checkDiagR2L()){
 			weHaveAWinner(player);
 		}
 	}
