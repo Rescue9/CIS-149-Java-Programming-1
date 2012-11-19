@@ -82,15 +82,16 @@ public class TicTacToe {
 		System.out.println(boardPosition);
 		
 		// check to see if the space is empty, if not notify user to select a new space
-		if (board[row-1][col-1] != 'X'){
-			if (board[row-1][col-1] != 'O'){
-				myGame.addChar(row, col, player);
-			}
-		}
-		else {
+		if (board[row-1][col-1] == 'X'){
 			System.out.println("The spot " + row + " " + col + " is not empty.");
 			System.out.println("Try a different space....");
 			takeMyTurn(player);
+		}else if (board[row-1][col-1] == 'O'){
+				System.out.println("The spot " + row + " " + col + " is not empty.");
+				System.out.println("Try a different space....");
+				takeMyTurn(player);
+		}else {
+			myGame.addChar(row, col, player);
 		}
 		
 		// execute checks to see if we have a winner
