@@ -19,107 +19,12 @@ public class TicTacToe {
 		board = new char[3][3];
 	}
 	
-	//create new object TicTacToe
+	// create new object TicTacToe
 	private static TicTacToe myGame = new TicTacToe();
-
-	
-	// draw the board initially & redraw the board as needed for guess
-	public String drawBoard(){
-		String boardString = "\n\n    Row/Col\n\n";
-		boardString = boardString + "    1  2  3\n";
-		boardString = boardString + "   --------\n";
-		for (int i=0; i<3; i++){
-			boardString = boardString + (i+1) + " |";
-			for (int j=0; j<3; j++){
-				if (board[i][j] == 0)
-					boardString = boardString + " .|";
-				else
-					boardString = boardString + " " + board[i][j] + "|";
-			}
-			boardString = boardString + "\n";
-			boardString = boardString + "  |__|__|__|\n";
-		}
-		return boardString;
-	}
-	
-	// add a specific character to a specific array
-	private void addChar(int row, int col, char value){
-		if (row>=0 && row<=3 && col >=0 && col <=3){
-			board[row-1][col-1] = value;
-		}
-	}
-
-	private boolean checkHoriz(){
-		boolean win = true;
-		int row = 0;
-		for (row=0; row<=2; row++){
-			if (board[row][0] != board[row][1]){
-				win = false;
-			}
-			if (board[row][0] != board[row][2]){
-				win = false;
-			}
-			return win;
-		}
-		return win;
-	}
-
-	private boolean checkVert(){
-		boolean win = true;
-		int col=0;
-		for (col=0; col<=2; col++){
-			if (board[0][col] != board[1][col]){
-				win = false;
-			}
-			if (board[1][col] != board[2][col]){
-				win = false;
-			}
-			return win;
-		}
-		return win;
-		}
-		
-	private boolean checkDiagL2R(){
-		boolean win = true;
-		if (board[0][0] != board[1][1] || board[1][1] != board[2][2]){
-			win = false;
-		} else if (board[1][1] != 'O' && board[1][1] != 'X'){
-			win = false;
-		}
-		return win;
-	}
-	
-	private boolean checkDiagR2L(){
-		boolean win = true;
-		if (board[0][2] != board[1][1] || board[1][1] != board[2][0]){
-			win = false;
-		}else if (board[1][1] != 'O' && board[1][1] != 'X'){
-			win = false;
-		}
-		return win;
-	}
-	
-	private static void weHaveAWinner(char who){
-		System.out.println(who + " WINS!"); //TODO determine who actually won
-		System.exit(0);
-	}
-
-	private static boolean isBoardFull(){
-		boolean boardFull = true;
-		for (int row = 0; row <=2; row++){
-			for (int col=0; col<=2; col++){
-				boardFull = boardFull && board[row][col]>0;
-			}
-		}
-		return boardFull;
-	}
-	public boolean checkWin(){
-		return true;
-	}
 	
 	public static void main(String[] args){
 		
-		
+		// create header information and draw initial board
 		System.out.println("\tTicTacToe Game:");
 		System.out.println();
 		System.out.println("The puzzle is:" + myGame.drawBoard());
@@ -144,20 +49,26 @@ public class TicTacToe {
 			}
 		}
 	}
-	
-	private static void anotherGame(){
-		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Would you like to play again?");
-		String answer = keyboard.next();
-		if (answer.equalsIgnoreCase("Y")){
-			myGame.drawBoard();
-		} else {
-			System.out.println("How about a nice game of chess? {snicker}");
-			System.exit(0);
-		}
-	}
-		
 
+	// draw the board initially & redraw the board as needed for guess
+	public String drawBoard(){
+		String boardString = "\n\n    Row/Col\n\n";
+		boardString = boardString + "    1  2  3\n";
+		boardString = boardString + "   --------\n";
+		for (int i=0; i<3; i++){
+			boardString = boardString + (i+1) + " |";
+			for (int j=0; j<3; j++){
+				if (board[i][j] == 0)
+					boardString = boardString + " .|";
+				else
+					boardString = boardString + " " + board[i][j] + "|";
+			}
+			boardString = boardString + "\n";
+			boardString = boardString + "  |__|__|__|\n";
+		}
+		return boardString;
+	}
+	
 	private static void takeMyTurn(char who){
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println(who + "'s turn");
@@ -170,7 +81,7 @@ public class TicTacToe {
 		String boardPosition = board[row-1][col-1] + " is placed here.";
 		System.out.println(boardPosition);
 		
-		// check to see if the space is empty
+		// check to see if the space is empty, if not notify user to select a new space
 		if (board[row-1][col-1] != 'X'){
 			if (board[row-1][col-1] != 'O'){
 				myGame.addChar(row, col, player);
@@ -179,15 +90,15 @@ public class TicTacToe {
 		else {
 			System.out.println("The spot " + row + " " + col + " is not empty.");
 			System.out.println("Try a different space....");
-			//System.out.println(myGame.drawBoard());
 			takeMyTurn(player);
 		}
 		
+		// execute checks to see if we have a winner
 		System.out.println("the puzzle now is: \n" + myGame.drawBoard());
-		if (myGame.checkVert()){
+		if (myGame.checkRow()){
 			weHaveAWinner(player);
 		}
-		if (myGame.checkHoriz()){
+		if (myGame.checkCol()){
 			weHaveAWinner(player);
 		}
 		if (myGame.checkDiagL2R()){
@@ -195,6 +106,93 @@ public class TicTacToe {
 		}
 		if (myGame.checkDiagR2L()){
 			weHaveAWinner(player);
+		}
+	}
+	// check to see if all the spaces are used
+	private static boolean isBoardFull(){
+		boolean boardFull = true;
+		for (int row = 0; row <=2; row++){
+			for (int col=0; col<=2; col++){
+				boardFull = boardFull && board[row][col]>0;
+			}
+		}
+		return boardFull;
+	}
+	
+	// add a specific character to a specific array
+	private void addChar(int row, int col, char value){
+		if (row>=0 && row<=3 && col >=0 && col <=3){
+			board[row-1][col-1] = value;
+		}
+	}
+	// check each row to see if they were someone won
+	private boolean checkRow(){
+		for (int row=0; row<=2; row++){
+			if (board[row][0] == 'X' && board[row][1] == 'X' && board[row][2] == 'X'){
+				weHaveAWinner('X');
+				return true;
+			}else if (board[row][0] == 'O' && board[row][1] == 'O' && board[row][2] == 'O'){
+				weHaveAWinner('O');
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	// check each column to see if someone won
+	private boolean checkCol(){
+		for (int col=0; col<=2; col++){
+			if (board[0][col] == 'X' && board[1][col] == 'X' && board[2][col] == 'X'){
+				weHaveAWinner('X');
+				return true;
+			}else if (board[0][col] == 'O' && board[1][col] == 'O' && board[2][col] == 'O'){
+				weHaveAWinner('O');
+				return true;
+			}
+		}
+		return false;
+	}
+		
+	//check diagonally from left to right to see if someone won
+	private boolean checkDiagL2R(){
+		if (board[0][0] == 'X' &&  board[1][1] == 'X' && board[2][2] == 'X'){
+			weHaveAWinner('X');
+			return true;
+		} else if (board[0][0] == 'O' &&  board[1][1] == 'O' && board[2][2] == 'O'){
+			weHaveAWinner('O');
+			return true;
+		}
+		return false;
+	}
+	
+	// check diagonally from right to left to see if someone won
+	private boolean checkDiagR2L(){
+		if (board[0][2] == 'X' &&  board[1][1] == 'X' && board[2][0] == 'X'){
+			weHaveAWinner('X');
+			return true;
+		}else if (board[0][2] == 'O' &&  board[1][1] == 'O' && board[2][0] == 'O'){
+			weHaveAWinner('O');
+			return true;
+		}
+		return false;
+	}
+	
+	// proclaim a winner
+	private static void weHaveAWinner(char who){
+		System.out.println(who + " WINS!");
+		anotherGame();
+	}
+
+	// ask if the user would like to play again
+	private static void anotherGame(){
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Would you like to play again?");
+		String answer = keyboard.next();
+		if (answer.equalsIgnoreCase("Y")){
+			myGame.drawBoard();
+		} else {
+			System.out.println("How about a nice game of chess? {snicker}");
+			System.exit(0);
 		}
 	}
 }
