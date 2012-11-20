@@ -3,6 +3,7 @@ package Ch8.Lab2;
 public class Patient extends Person {
 	
 	private String ssn;
+	@SuppressWarnings("unused")
 	private String name;
 	
 	public Patient(){
