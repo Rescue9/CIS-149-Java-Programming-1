@@ -9,11 +9,6 @@ public class Student extends Person {
 		studentNumber = 000000;
 	}
 	
-	public Student(String initialName){
-		super(initialName);
-		studentNumber = 000000;
-	}
-	
 	public Student(String initialName, int initialStudentNumber){
 		super(initialName);
 		setStudentNumber(initialStudentNumber);
@@ -21,11 +16,13 @@ public class Student extends Person {
 	}
 	
 	public void reset(String newName, int newStudentNumber){
+		setName(newName);
+		setStudentNumber(newStudentNumber);
 		
 	}
 	
 	public void setStudentNumber(int newStudentNumber){
-		
+		studentNumber = newStudentNumber;
 	}
 	
 	public int getStudentNumber(){
@@ -33,9 +30,10 @@ public class Student extends Person {
 	}
 	
 	public void writeOutput(){
-		
+		super.writeOutput();
+		System.out.println("Student Number: " + studentNumber);
 	}
 	public boolean equals(Student otherStudent){
-		return equals((Student)otherStudent);
+		return equals((Student)otherStudent) && (this.studentNumber == otherStudent.studentNumber);
 	}
 }

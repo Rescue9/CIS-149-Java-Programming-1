@@ -20,7 +20,7 @@ public class Undergraduate extends Student
     public void reset(String newName, int newStudentNumber, 
 	                  int newLevel)
     {
-        reset(newName, newStudentNumber); //Student�s reset
+        reset(newName, newStudentNumber); //Student's reset
         setLevel(newLevel); //Checks 1 <= newLevel <= 4
     }
     

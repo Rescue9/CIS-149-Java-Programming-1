@@ -1,6 +1,6 @@
 package Ch8.Program1;
 
-public class Faculty extends Employee2
+public class Faculty extends Employee
 {
     private String title;		// Every faculty member has a title
 
@@ -20,7 +20,7 @@ public class Faculty extends Employee2
     public void reset(String newName, String newDept, int newID,
 	                  String newTitle)
     {
-        reset(newName, newDept, newID); //Employee2's reset
+        reset(newName, newDept, newID); //Employee's reset
         title = newTitle;
     }
 
