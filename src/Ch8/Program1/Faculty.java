@@ -33,6 +33,7 @@ public class Faculty extends Employee
     {
         title = newTitle;
     }
+    
 
     public void writeOutput( )
     {

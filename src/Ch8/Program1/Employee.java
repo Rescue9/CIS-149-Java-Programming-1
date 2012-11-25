@@ -38,6 +38,10 @@ public class Employee extends Person
     {
         employeeID = newID;
     }
+    
+    public void setDepartment(String newDepartment){
+    	department = newDepartment;
+    }
 
     public void writeOutput( )
     {
