@@ -6,6 +6,7 @@ import java.awt.event.*;
 
 public class CoderFrame extends JFrame implements ActionListener{
 
+	private static final long serialVersionUID = 1L;  //eclipse complains
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
 	
