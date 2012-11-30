@@ -27,19 +27,14 @@ public class PowerballTest {
 			int holding = keyboard.nextInt();
 		
 			// pass holding number off to powerballObj
-			powerballObj.setNewNumber(holding);
-		
-			// check number for originality
-			powerballObj.checkNumberQuality();
-		
-			// check originality
-			powerballObj.checkNumberOriginality();
+			// verify number
+			powerballObj.numberVerification(holding);
 			
 			// list all picked numbers
-			for (int i = 0; i < powerballObj.getPickedNumbers().length; i++){
+			/*for (int i = 0; i < powerballObj.getPickedNumbers().length; i++){
 				System.out.println(powerballObj.getPickedNumbers(i));
-			}
-		} while (powerballObj.getSequenceNumber() < powerballObj.getPickedNumbers().length + 1); // repeat loop until ready to pick powerball number
+			}*/
+		} while (powerballObj.getSequenceNumber() < powerballObj.getPickedNumbers().length); // repeat loop until ready to pick powerball number
 		
 		System.out.println("GOT THIS FAR");
 	}
