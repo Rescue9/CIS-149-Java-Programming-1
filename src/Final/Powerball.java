@@ -38,16 +38,15 @@ public class Powerball {
 		this.pickedNumbers = pickedNumbers;
 	}
 	
-	public void isNumberInArray(int holding){
+	public boolean isNumberInArray(int holding){
 		// setup loop to check array for number originality
+		// just check, dont fix!
+		String isOriginal = false
 		for (int i = 0; i < sequenceNumber; i++){
 			if (pickedNumbers[i] != holding){
-				repickNumber();
-			} else {
-				System.out.println("Got HERE");
-				pickedNumbers[i] = holding;
-				sequenceNumber++;
+				isOriginal = true;
 			}
+		return isOriginal;		
 		}
 	}
 	
